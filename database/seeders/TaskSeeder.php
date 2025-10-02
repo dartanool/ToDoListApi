@@ -24,5 +24,23 @@ class TaskSeeder extends Seeder
             'description' => 'Загрузить на GitHub',
             'status' => 'done',
         ]);
+
+        Task::create([
+            'title' => 'Сделать домашнее задание',
+            'description' => 'Закончить проект по Laravel',
+            'status' => 'pending',
+        ]);
+
+        Task::create([
+            'title' => 'Купить продукты',
+            'description' => 'Молоко, хлеб, яйца',
+            'status' => 'done',
+        ]);
+
+        Task::create([
+            'title' => 'Позвонить маме',
+            'description' => null,
+            'status' => 'in_progress',
+            ]);
     }
 }
