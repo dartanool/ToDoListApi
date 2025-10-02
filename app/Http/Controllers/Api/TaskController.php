@@ -21,6 +21,11 @@ class TaskController extends Controller
         return response()->json($tasks);
     }
 
+    public function show(int $id ): JsonResponse
+    {
+        $task = $this->taskService->getById($id);
+        return response()->json($task);
+    }
     public function store(StoreTaskRequest $request): JsonResponse
     {
         $taskDTO = TaskDTO::fromArray($request->validated());

@@ -16,6 +16,10 @@ class TaskService
     {
         return Task::create($taskDTO->toArray());
     }
+    public function getById(int $id)
+    {
+        return Task::query()->findOrFail($id);
+    }
 
 
 }
