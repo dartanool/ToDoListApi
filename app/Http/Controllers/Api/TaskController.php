@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\DTOs\TaskDTO;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTaskRequest;
+use App\Http\Requests\UpdateTaskRequest;
 use App\Services\TaskService;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\JsonResponse;
@@ -30,7 +31,15 @@ class TaskController extends Controller
     {
         $taskDTO = TaskDTO::fromArray($request->validated());
         $task = $this->taskService->create($taskDTO);
-        return response()->json($task,201);
 
+        return response()->json($task,201);
+    }
+    public function update(UpdateTaskRequest $request, int $id): JsonResponse
+    {
+        $taskDTO = TaskDTO::fromArray($request->validated());
+        $task = $this->taskService->update($id, $taskDTO);
+
+        return response()->json($task);
     }
 }
+

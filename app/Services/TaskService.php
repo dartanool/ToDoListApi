@@ -20,6 +20,11 @@ class TaskService
     {
         return Task::query()->findOrFail($id);
     }
+    public function update(int $id, TaskDTO $taskDTO){
+        $tasks = Task::query()->findOrFail($id);
+        $tasks->update($taskDTO->toArray());
+        return $tasks->fresh();
+    }
 
 
 }
