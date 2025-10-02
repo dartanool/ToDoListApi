@@ -41,5 +41,12 @@ class TaskController extends Controller
 
         return response()->json($task);
     }
+
+    public function destroy(int $id): JsonResponse
+    {
+        $this->taskService->delete($id);
+
+        return response()->json([], 201);
+    }
 }
 

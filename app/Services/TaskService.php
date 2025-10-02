@@ -25,6 +25,12 @@ class TaskService
         $tasks->update($taskDTO->toArray());
         return $tasks->fresh();
     }
+    public function delete(int $id) : bool
+    {
+        $task = Task::query()->findOrFail($id)->delete();
+
+        return $task;
+    }
 
 
 }
